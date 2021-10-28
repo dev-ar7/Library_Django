@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}Add Student{% endblock title %}</title>
+	<style type="text/css">
+		.form {
+			margin-left: 50em;
+			border: black solid 2px;
+		}
+	</style>
+</head>
+<body>
+{% block content %}
+	<h1 class="mt-4"><i>Add New Students</i></h1>
+	<hr>
+	<div class="form-group form mt-5 mb-5">
+		<form method="POST" action="new_student" class="form-inline">
+			{% csrf_token %}
+            <label>Student ID :</label><div>{{ form.std_id }}</div><br>
+			<label>Student Name :</label><div>{{ form.std_name }}</div><br>
+			<label>Student Address :</label><div>{{ form.std_address }}</div><br>
+			<label>Student Batch :</label><div>{{ form.std_batch }}</div>
+			<br>
+			<button class="btn btn-outline-primary" type="submit">Add Student</button>
+		</form>
+	</div>
+{% endblock content %}
+</body>
+</html>

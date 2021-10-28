@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}Add Issued Book{% endblock title %}</title>
+</head>
+<body>
+	{% block content %}
+	<h1 class="mt-4"><i>Add Issued Books</i></h1>
+	<hr>
+	<div class="form-group mt-5 mb-5">
+    	<form method="POST" action="new_issuebook" class="form-inline">
+    		{% csrf_token %}
+    		<label>Student Id:</label><div>{{ form.student }}</div><br>
+    		<label>Book Id :</label><div>{{ form.book }}</div><br>
+    		<label>Issue Date :</label><div>{{ form.issue_date }}</div><br>
+            <label>Return Date :</label><div>{{ form.return_date }}</div><br>
+            <label>Score :</label><div>{{ form.score }}</div><br>
+    		<button type="submit" class="btn btn-outline-primary">Issue Book</button>
+    	</form>
+    </div>
+    {% endblock content %}
+</body>
+</html>
