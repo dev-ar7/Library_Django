@@ -33,7 +33,7 @@ class IssueBook(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     issue_date = models.DateTimeField(default="DD-MM-YYYY")
     return_date = models.DateTimeField(default=returned_date)
-    score = models.CharField(max_length=100, default="Some Scores")
+    score = models.CharField(max_length=3, default="Some Scores")
 
     def __str__(self):
         return self.student.std_name + "Borrowed" + self.book.book_title
